@@ -1,0 +1,40 @@
+1. CREATE DATABASE myshop;
+
+2. USE myshop;
+   CREATE TABLE users (id INT NOT NULL AUTO_INCREMENT PRIMARY KEY, 
+                     name VARCHAR(255) NOT NULL, 
+                     email VARCHAR(255) NOT NULL, 
+                     password VARCHAR(255) NOT NULL);
+
+   CREATE TABLE items(id INT NOT NULL AUTO_INCREMENT, 
+                     name VARCHAR(255) NOT NULL , 
+                     description VARCHAR(255) NOT NULL , 
+                     price INT NOT NULL , 
+                     stock INT NOT NULL , 
+                     category_id INT NOT NULL, 
+                     FOREIGN KEY (id) REFERENCES categories(id));
+                     
+   CREATE TABLE users (id INT NOT NULL AUTO_INCREMENT PRIMARY KEY, 
+                     name VARCHAR(255) NOT NULL);
+
+3. USE myshop;
+   INSERT INTO users(name, email, password) VALUES('John Doe', 'john@doe.com', 'john123');
+   INSERT INTO users(name, email, password) VALUES('Jane Doe', 'jane@doe.com', 'jenita123');
+
+   INSERT INTO categories(name) VALUES('gadget');
+   INSERT INTO categories(name) VALUES('cloth');
+   INSERT INTO categories(name) VALUES('men');
+   INSERT INTO categories(name) VALUES('women');
+   INSERT INTO categories(name) VALUES('branded');
+
+   INSERT INTO items(name, description, price, stock, category_id) VALUES('Sumsang b50', 'hape keren dari merek sumsang', 4000000, 100, 1);
+   INSERT INTO items(name, description, price, stock, category_id) VALUES('Uniklooh', 'baju keren dari brand ternama', 500000, 50, 2);
+   INSERT INTO items(name, description, price, stock, category_id) VALUES('IMHO Watch', 'jam tangan anak yang jujur banget', 2000000, 10, 1);
+
+4. a. SELECT id, name, email FROM users;
+   b. SELECT * FROM items WHERE (price > 1000000);
+      SELECT * FROM items WHERE (name LIKE '%uniklo%');
+   c. SELECT I.name, I.description, I.price, I.stock, I.category_id, C.name kategori 
+      FROM items I INNER JOIN categories C ON I.id = C.id
+
+5. UPDATE items SET price = 2500000 WHERE name LIKE 'sumsang%'
