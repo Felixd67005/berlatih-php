@@ -54,7 +54,6 @@ class PertanyaanController extends Controller
     }
 
     public function update($id, Request $request){
-        dd($request->all());
         $this->validate($request, [
             'judul' => 'required|max:100',
             'isi' => 'required|max:255'
@@ -66,8 +65,8 @@ class PertanyaanController extends Controller
             "isi" => $request["isi"],
             "tanggal_diperbaharui" => $current_date_time
         ]);
-        //return redirect('/pertanyaan')->with('success', 'Berhasil merubah data pertanyaan')
 
+        return redirect('/pertanyaan')->with('success', 'Berhasil merubah data pertanyaan');
     }
 
     public function destroy(){

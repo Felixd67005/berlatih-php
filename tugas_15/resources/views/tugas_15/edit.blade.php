@@ -20,7 +20,7 @@
 
             <form role="form" action='/pertanyaan/{{ $ask->id }}' method='POST'>
                 {{ csrf_field() }}
-                @method('PUT') 
+                {{method_field('PUT')}}
                 <div class="card-body">
                     <div class="form-group">
                         <label for="id">ID : </label>
