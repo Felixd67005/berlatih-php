@@ -25,14 +25,17 @@
                     <td>{{ $ask->judul }}</td>
                     <td>{{ $ask->isi }}</td>
                     <td>{{ $ask->tanggal_dibuat }}</td>
-                    <td>Detail</td>
+                    <td  style="display: flex">
+                        <a href="/pertanyaan/{{ $ask->id }}" class="btn btn-info btn-sm"}>Detail</a>
+                        <a href="/pertanyaan/{{ $ask->id }}/edit" class="btn btn-default btn-sm"}>Edit</a>
+                    </td>
                 </tr>
                 @endforeach
             </tbody>s
         </table>
         </div>
         <!-- /.card-body -->
-        <div class="card-footer clearfix">
+        <!-- <div class="card-footer clearfix">
         <ul class="pagination pagination-sm m-0 float-right">
             <li class="page-item"><a class="page-link" href="#">«</a></li>
             <li class="page-item"><a class="page-link" href="#">1</a></li>
@@ -40,7 +43,7 @@
             <li class="page-item"><a class="page-link" href="#">3</a></li>
             <li class="page-item"><a class="page-link" href="#">»</a></li>
         </ul>
-        </div>
+        </div> -->
     </div>
 </div>
 @endsection

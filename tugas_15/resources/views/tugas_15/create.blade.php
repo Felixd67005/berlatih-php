@@ -8,6 +8,16 @@
         </div>
         <!-- /.card-header -->
         <!-- form start -->
+        @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
+
         <form role="form" action='/pertanyaan' method='POST'>
             {{ csrf_field() }}
             <div class="card-body">
@@ -19,10 +29,6 @@
                     <label for="isi">Isi</label>
                     <input type="text" class="form-control" id="isi" name="isi" placeholder="Isi">
                 </div>
-                <div class="form-group">
-                    <label for="tepat">Jawaban tepat</label>
-                    <input type="text" class="form-control" id="tepat" name="tepat" placeholder="Jawaban tepat">
-                </div>                     
             </div>
             <!-- /.card-body -->
 
@@ -31,5 +37,5 @@
             </div>
         </form>
     </div>
-    </div>
+</div>
 @endsection
