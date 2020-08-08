@@ -28,10 +28,15 @@
                     <td  style="display: flex">
                         <a href="/pertanyaan/{{ $ask->id }}" class="btn btn-info btn-sm"}>Detail</a>
                         <a href="/pertanyaan/{{ $ask->id }}/edit" class="btn btn-default btn-sm"}>Edit</a>
+                        <form action='/pertanyaan/{{ $ask->id }}' method='POST'>
+                            {{ csrf_field() }}
+                            {{method_field('DELETE')}}
+                            <input type="submit" value="Delete" class="btn btn-danger btn-sm"/>
+                        </form>
                     </td>
                 </tr>
                 @endforeach
-            </tbody>s
+            </tbody>
         </table>
         </div>
         <!-- /.card-body -->

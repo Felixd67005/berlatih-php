@@ -69,7 +69,8 @@ class PertanyaanController extends Controller
         return redirect('/pertanyaan')->with('success', 'Berhasil merubah data pertanyaan');
     }
 
-    public function destroy(){
-        
+    public function destroy($id){
+        $ask = DB::table('pertanyaan')->where('id', $id) ->delete();
+        return redirect('/pertanyaan')->with('success', 'Berhasil menghapus data pertanyaan');
     }
 }
